@@ -16,4 +16,5 @@ import java.sql.SQLException;
 public interface controller_siswa {
     public void Simpan(tampilan t) throws SQLException;
     public void Reset (tampilan t) throws SQLException;
+    public void Ubah (tampilan t) throws SQLException;
 }
