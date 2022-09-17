@@ -51,9 +51,9 @@ public class tampilan extends javax.swing.JFrame {
         rbPerempuan = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         cbJurusan = new javax.swing.JComboBox<>();
-        btnBaru = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         btnSimpan = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -109,8 +109,13 @@ public class tampilan extends javax.swing.JFrame {
 
         cbJurusan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "rpl", "tkj", "mm" }));
 
-        btnBaru.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBaru.setText("Baru");
+        btnReset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSimpan.setText("Simpan");
@@ -120,7 +125,13 @@ public class tampilan extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
+        btnUbah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnUbah.setText("Ubah");
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("jButton4");
 
@@ -147,11 +158,11 @@ public class tampilan extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnBaru)
+                        .addComponent(btnReset)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSimpan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(btnUbah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,7 +188,7 @@ public class tampilan extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtNIS, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,9 +212,9 @@ public class tampilan extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBaru)
+                    .addComponent(btnReset)
                     .addComponent(btnSimpan)
-                    .addComponent(jButton3)
+                    .addComponent(btnUbah)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
                 .addGap(18, 18, 18)
@@ -252,6 +263,22 @@ public class tampilan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        try {
+            model.Reset(this);
+        } catch (SQLException ex) {
+            Logger.getLogger(tampilan.class.getName()).log(Level.SEVERE,null, ex);
+        }
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        try {
+            model.Ubah(this);
+        } catch (SQLException ex) {
+            Logger.getLogger(tampilan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnUbahActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,12 +315,12 @@ public class tampilan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnBaru;
+    public javax.swing.JButton btnReset;
     public javax.swing.JButton btnSimpan;
+    public javax.swing.JButton btnUbah;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     public javax.swing.JComboBox<String> cbJurusan;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

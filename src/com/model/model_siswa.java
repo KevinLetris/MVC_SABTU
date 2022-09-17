@@ -28,14 +28,14 @@ public class model_siswa implements controller_siswa {
         }
         try{
 Connection con = koneksi.getcon();
-String sql = "Insert Into register Values(?,?,?,?)";
+String sql = "Insert Into t Values(?,?,?,?)";
 PreparedStatement prepare = con.prepareStatement(sql);
 prepare.setString(1, t.txtNIS.getText());
 prepare.setString(2, t.txtNama.getText());
 prepare.setString(3, jk);
 prepare.setString(4, (String) t.cbJurusan.getSelectedItem());
 prepare.executeUpdate();
-JOptionPane.showMessageDialog(null, "sudah masuk kok daddy");
+JOptionPane.showMessageDialog(null, "simpan");
 prepare.close();
 } catch (Exception e){
 System.out.println(e);
@@ -50,5 +50,30 @@ System.out.println(e);
         t.txtNama.setText("");
         t.rbLaki.setSelected(true);
         t.cbJurusan.setSelectedIndex(0);
+    }
+
+    @Override
+    public void Ubah(tampilan t) throws SQLException {
+         if (t.rbLaki.isSelected()){
+            jk = "Laki-laki";
+        } else {
+            jk = "Perempuan";
+        }
+        try{
+Connection con = koneksi.getcon();
+String sql = "UPDATE t SET nama=?, jenis_kelamin=? " + "jurusan=? WHERE NIS=?";
+PreparedStatement prepare = con.prepareStatement(sql);
+prepare.setString(4, t.txtNIS.getText());
+prepare.setString(1, t.txtNama.getText());
+prepare.setString(2, jk);
+prepare.setString(3, (String) t.cbJurusan.getSelectedItem());
+prepare.executeUpdate();
+JOptionPane.showMessageDialog(null, "ubah");
+prepare.close();
+} catch (Exception e){
+System.out.println(e);
+} finally {
+
+        } 
     }
 }
