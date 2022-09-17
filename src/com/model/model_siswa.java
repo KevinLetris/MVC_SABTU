@@ -43,4 +43,12 @@ System.out.println(e);
 
         } 
     }
+
+    @Override
+    public void Reset(tampilan t) throws SQLException {
+        t.txtNIS.setText("");
+        t.txtNama.setText("");
+        t.rbLaki.setSelected(true);
+        t.cbJurusan.setSelectedIndex(0);
+    }
 }
